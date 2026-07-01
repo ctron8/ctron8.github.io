@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bellessere — Centro Estetico</title>
+<meta name="description" content="Bellessere · Prenditi cura di te. Trattamenti viso e corpo, manicure e percorsi benessere in un ambiente rilassante. La tua bellezza naturale, valorizzata."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--bg:#f1f7f6;--surface:#ffffff;--primary:#2f6b63;--accent:#e0a9a0;--text:#21322f;--muted:#7c908c;--border:rgba(0,0,0,0.08);--disp:'Marcellus', Georgia, serif;--body:'Inter', sans-serif}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block;width:100%%}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+section{padding:6rem 0}
+h1,h2,h3{font-family:var(--disp);line-height:1.1}
+h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;color:var(--primary)}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.lead{color:var(--muted);max-width:540px;margin-top:1rem;font-size:1.03rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;border-radius:8px;font-weight:600;font-size:.9rem;cursor:pointer;border:none;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-p{background:var(--accent);color:#fff}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.btn-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn-o:hover{background:rgba(255,255,255,.15)}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s;border-bottom:1px solid transparent}
+nav.solid{background:var(--surface);border-bottom-color:var(--border);box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px;max-width:1080px;margin:0 auto;padding:0 1.5rem}
+.brand{font-family:var(--disp);font-weight:700;font-size:1.3rem;color:#fff;transition:color .3s}
+nav.solid .brand{color:var(--primary)}
+.nav-cta{padding:.55rem 1.1rem;font-size:.8rem;border-radius:7px;background:var(--accent);color:#fff;font-weight:600}
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;color:#fff}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%%;height:100%%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(0,0,0,.72),rgba(0,0,0,.35) 60%%,rgba(0,0,0,.6))}
+.hero-c{position:relative;z-index:1;padding-top:70px;max-width:720px}
+.hero .eyebrow{color:#fff;opacity:.85}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:700;margin-bottom:1rem;text-shadow:0 4px 30px rgba(0,0,0,.4)}
+.hero-sub{font-size:1.12rem;max-width:520px;margin-bottom:2rem;color:rgba(255,255,255,.9)}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.scroll-cue{position:absolute;bottom:26px;left:50%%;transform:translateX(-50%%);z-index:1;color:rgba(255,255,255,.6);font-size:.7rem;letter-spacing:.2em;animation:bob 2s infinite}
+@keyframes bob{0%%,100%%{transform:translate(-50%%,0)}50%%{transform:translate(-50%%,7px)}}
+/* STRIP */
+.strip{background:var(--primary);color:#fff}
+.strip-in{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.15)}
+.strip-cell{background:var(--primary);padding:1.5rem;text-align:center}
+.strip-cell .k{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:.3rem}
+.strip-cell .v{font-weight:600;font-size:.95rem}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-media{border-radius:14px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 60px rgba(0,0,0,.15)}
+.about-media img{width:100%%;height:100%%;object-fit:cover}
+/* SIGNATURE */
+.sig{background:var(--surface)}
+.sig-list{margin-top:2.5rem;display:grid;gap:.4rem;max-width:760px}
+.sig-item{display:flex;justify-content:space-between;gap:1.5rem;align-items:baseline;padding:1rem 0;border-bottom:1px dashed var(--border)}
+.sig-info h4{font-family:var(--body);font-size:1.02rem;font-weight:600;color:var(--text)}
+.sig-info p{font-size:.85rem;color:var(--muted);margin-top:.15rem}
+.sig-price{font-family:var(--disp);font-weight:600;color:var(--accent);white-space:nowrap;font-size:1.02rem}
+/* GALLERY */
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:180px;gap:12px;margin-top:2.5rem}
+.gal a{border-radius:12px;overflow:hidden}
+.gal a:first-child{grid-row:span 2;grid-column:span 1}
+.gal img{width:100%%;height:100%%;object-fit:cover;transition:transform .5s}
+.gal a:hover img{transform:scale(1.07)}
+/* FEATURES */
+.feat{background:var(--surface)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.feat-card{padding:2rem;border:1px solid var(--border);border-radius:14px;background:var(--bg);transition:transform .3s,border-color .3s}
+.feat-card:hover{transform:translateY(-6px);border-color:var(--accent)}
+.feat-ic{font-size:2.2rem;margin-bottom:.8rem}
+.feat-card h3{font-size:1.1rem;color:var(--primary);margin-bottom:.5rem}
+.feat-card p{font-size:.9rem;color:var(--muted)}
+/* CONTACT */
+.contact{background:var(--primary);color:#fff;text-align:center}
+.contact h2{color:#fff}
+.contact .lead{margin:1rem auto 2rem;color:rgba(255,255,255,.85)}
+.contact-info{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;font-size:.95rem}
+.contact-info b{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-bottom:.25rem;font-weight:600}
+.contact-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+/* FOOTER */
+footer{background:var(--surface);padding:2.5rem 1.5rem;text-align:center;border-top:1px solid var(--border)}
+.foot-brand{font-family:var(--disp);font-weight:700;font-size:1.2rem;color:var(--primary);margin-bottom:.4rem}
+.foot-sub{font-size:.82rem;color:var(--muted);margin-bottom:1rem}
+.foot-credit{font-size:.8rem;color:var(--muted)}
+.foot-credit a{color:var(--accent);font-weight:700}
+/* REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:820px){.about-grid,.strip-in,.feat-grid{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.gal a:first-child{grid-column:span 2}}
+@media(max-width:600px){.gal{grid-template-columns:1fr}.gal a:first-child{grid-column:span 1}.nav-cta{display:none}}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="nav-in"><span class="brand">Bellessere</span><a href="#contatti" class="nav-cta">Contattaci</a></div></nav>
+
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.pexels.com/photos/9335967/pexels-photo-9335967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Bellessere"/></div>
+  <div class="wrap"><div class="hero-c">
+    <div class="eyebrow">Centro Estetico</div>
+    <h1>Bellessere</h1>
+    <p class="hero-sub">Prenditi cura di te. Trattamenti viso e corpo, manicure e percorsi benessere in un ambiente rilassante. La tua bellezza naturale, valorizzata.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/393792434855" target="_blank" class="btn btn-p">💬 Scrivici su WhatsApp</a>
+      <a href="tel:+39 050 888 9900" class="btn btn-o">📞 Chiama ora</a>
+    </div>
+  </div></div>
+  <div class="scroll-cue">SCORRI ↓</div>
+</section>
+
+<div class="strip"><div class="wrap" style="padding:0"><div class="strip-in">
+  <div class="strip-cell"><div class="k">Orari</div><div class="v">Lun–Sab 9:00–19:30 · Dom chiuso</div></div>
+  <div class="strip-cell"><div class="k">Dove siamo</div><div class="v">Via del Benessere 9, Pisa</div></div>
+  <div class="strip-cell"><div class="k">Telefono</div><div class="v">+39 050 888 9900</div></div>
+</div></div></div>
+
+<section class="about"><div class="wrap"><div class="about-grid">
+  <div class="about-media rv"><img src="https://images.pexels.com/photos/9335961/pexels-photo-9335961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Bellessere"/></div>
+  <div class="rv">
+    <div class="eyebrow">Chi siamo</div>
+    <h2>Un&#x27;oasi di benessere</h2>
+    <p class="lead">Uno spazio pensato per il tuo relax, dove estetiste qualificate ti accompagnano con trattamenti su misura e prodotti delicati. Esci più bella e rigenerata, dentro e fuori.</p>
+  </div>
+</div></div></section>
+
+<section class="sig"><div class="wrap">
+  <div class="eyebrow rv">Listino</div>
+  <h2 class="rv">I nostri trattamenti</h2>
+  <div class="sig-list"><div class='sig-item'><div class='sig-info'><h4>Pulizia viso profonda</h4><p>Detersione e idratazione</p></div><div class='sig-price'>da €45</div></div><div class='sig-item'><div class='sig-info'><h4>Massaggio rilassante</h4><p>60 minuti di puro relax</p></div><div class='sig-price'>da €55</div></div><div class='sig-item'><div class='sig-info'><h4>Manicure &amp; gel</h4><p>Smalto semipermanente</p></div><div class='sig-price'>da €25</div></div><div class='sig-item'><div class='sig-info'><h4>Trattamento anti-età</h4><p>Con acido ialuronico</p></div><div class='sig-price'>da €70</div></div><div class='sig-item'><div class='sig-info'><h4>Percorso benessere</h4><p>Viso + corpo + relax</p></div><div class='sig-price'>da €95</div></div></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow rv">Galleria</div>
+  <h2 class="rv">Uno sguardo da noi</h2>
+  <div class="gal rv"><a href='https://images.pexels.com/photos/9335961/pexels-photo-9335961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' target='_blank'><img src='https://images.pexels.com/photos/9335961/pexels-photo-9335961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' alt='Bellessere'/></a><a href='https://images.pexels.com/photos/18120173/pexels-photo-18120173.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' target='_blank'><img src='https://images.pexels.com/photos/18120173/pexels-photo-18120173.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' alt='Bellessere'/></a><a href='https://images.pexels.com/photos/27925502/pexels-photo-27925502.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' target='_blank'><img src='https://images.pexels.com/photos/27925502/pexels-photo-27925502.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' alt='Bellessere'/></a><a href='https://images.pexels.com/photos/20861922/pexels-photo-20861922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' target='_blank'><img src='https://images.pexels.com/photos/20861922/pexels-photo-20861922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' alt='Bellessere'/></a></div>
+</div></section>
+
+<section class="feat"><div class="wrap">
+  <div class="eyebrow rv">Perché sceglierci</div>
+  <h2 class="rv">I nostri punti di forza</h2>
+  <div class="feat-grid"><div class='feat-card rv'><div class='feat-ic'>💆</div><h3>Trattamenti su misura</h3><p>Percorsi personalizzati per ogni esigenza.</p></div><div class='feat-card rv'><div class='feat-ic'>🌸</div><h3>Prodotti delicati</h3><p>Cosmetici professionali e naturali.</p></div><div class='feat-card rv'><div class='feat-ic'>🧘</div><h3>Ambiente rilassante</h3><p>Uno spazio dedicato al tuo benessere.</p></div></div>
+</div></section>
+
+<section class="contact" id="contatti"><div class="wrap">
+  <div class="eyebrow rv" style="color:var(--accent)">Contatti</div>
+  <h2 class="rv">Vieni a trovarci</h2>
+  <p class="lead rv">Ti aspettiamo! Scrivici o passa a trovarci di persona.</p>
+  <div class="contact-info rv">
+    <div><b>Indirizzo</b>Via del Benessere 9, Pisa</div>
+    <div><b>Telefono</b>+39 050 888 9900</div>
+    <div><b>Orari</b>Lun–Sab 9:00–19:30 · Dom chiuso</div>
+  </div>
+  <div class="contact-btns rv">
+    <a href="https://wa.me/393792434855" target="_blank" class="btn btn-p">💬 WhatsApp</a>
+    <a href="tel:+39 050 888 9900" class="btn btn-o">📞 Chiama</a>
+  </div>
+</div></section>
+
+<footer>
+  <div class="foot-brand">Bellessere</div>
+  <div class="foot-sub">Centro Estetico · Via del Benessere 9, Pisa</div>
+  <div class="foot-credit">Realizzato da <a href="https://ctron8.github.io/" target="_blank" rel="noopener">Ctron8</a> · siti web professionali per attività locali</div>
+</footer>
+
+<script>
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>40)});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
